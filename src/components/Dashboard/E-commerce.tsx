@@ -27,6 +27,7 @@ import MapOne from "../Maps/MapOne";
 import DollarIcon from "../Assets/Icons/DashBoardIcons/DollarIcon";
 import TargetStats from "../TargetStats/TargetStats";
 import CalendarBox from "../CalenderBox";
+import EmployeePerformance from "../Tables/EmployeePerformance";
 
 const StatusStatsData: statusStatsType[] = [
   {
@@ -141,8 +142,8 @@ const ECommerce: React.FC = () => {
         <div className="col-span-12 xl:col-span-7">
           <CalendarBox />
         </div>
-        <div className="col-span-12 xl:col-span-8">
-          <TableOne />
+        <div className="col-span-12 xl:col-span-12">
+          <EmployeePerformance />
         </div>
         <ChatCard />
         <MapOne />
