@@ -85,11 +85,13 @@ const config: Config = {
           },
         },
         orange: {
+          DEFAULT: "#F59460",
           light: {
             DEFAULT: "#F59460",
           },
         },
         yellow: {
+          DEFAULT: "#F59E0B",
           dark: {
             DEFAULT: "#F59E0B",
             2: "#D97706",
