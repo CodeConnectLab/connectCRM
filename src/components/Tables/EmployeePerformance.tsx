@@ -1,6 +1,5 @@
 import { EMPLOYEE_PERFORMANCE } from "@/types/employeePerformance";
 import Image from "next/image";
-import { isArray } from "lodash";
 
 const employeeData: EMPLOYEE_PERFORMANCE[] = [
   {
@@ -115,7 +114,7 @@ const EmployeePerformance = () => {
           </div>
         </div>
 
-        {isArray(employeeData) &&
+        {employeeData?.length &&
           employeeData.map((employee, key) => (
             <div
               className={`grid grid-cols-3 sm:grid-cols-7 ${
