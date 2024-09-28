@@ -9,14 +9,14 @@ interface DataStatsProps {
 const DataStatsOne: React.FC<DataStatsProps> = ({ dataList }) => {
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+      <div className="flex w-full gap-4 overflow-auto">
         {dataList.map((item, index) => (
           <div
             key={index}
-            className="rounded-[10px] bg-white p-6 shadow-1 dark:bg-gray-dark"
+            className="w-full min-w-[268px] rounded-[10px] bg-white p-6 shadow-1 dark:bg-gray-dark"
           >
             <div
-              className="flex h-14.5 w-14.5 items-center justify-center rounded-full"
+              className="flex h-14.5 w-14.5 items-center justify-center rounded-full text-2xl text-white" 
               style={{ backgroundColor: item.color }}
             >
               {item.icon}
