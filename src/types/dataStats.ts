@@ -1,5 +1,7 @@
+import { ReactNode } from 'react';
+
 export type dataStats = {
-  icon?: string;
+  icon?: string | ReactNode
   color?: string;
   title?: string;
   value?: string;
