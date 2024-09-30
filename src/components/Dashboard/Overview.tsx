@@ -26,8 +26,10 @@ import TableOne from "../Tables/TableOne";
 import MapOne from "../Maps/MapOne";
 import DollarIcon from "../Assets/Icons/DashBoardIcons/DollarIcon";
 import TargetStats from "../TargetStats/TargetStats";
-import CalendarBox from "../CalenderBox";
+// import CalendarBox from "../CalenderBox";
+
 import EmployeePerformance from "../Tables/EmployeePerformance";
+import CalendarBox from "../CalenderBox/CalenderBox";
 
 const StatusStatsData: statusStatsType[] = [
   {
@@ -126,7 +128,7 @@ const targetStatsData: targetStatsType[] = [
   },
 ];
 
-const ECommerce: React.FC = () => {
+const Overview: React.FC = () => {
   return (
     <>
       <div className="flex flex-col gap-4">
@@ -152,4 +154,4 @@ const ECommerce: React.FC = () => {
   );
 };
 
-export default ECommerce;
+export default Overview;

@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import CalendarBox from "@/components/CalenderBox";
+// import CalendarBox from "@/components/CalenderBox";
+import CalendarBox from "@/components/CalenderBox/CalenderBox";
 
 export const metadata: Metadata = {
   title: "Next.js Calender Page | NextAdmin - Next.js Dashboard Kit",
@@ -15,8 +16,7 @@ const CalendarPage = () => {
     <DefaultLayout>
       <div className="mx-auto max-w-7xl">
         <Breadcrumb pageName="Calendar" />
-
-        <CalendarBox />
+         <CalendarBox />
       </div>
     </DefaultLayout>
   );

@@ -8,4 +8,5 @@ export type EMPLOYEE_PERFORMANCE = {
   openDeals: number;
   failDeals: number;
   conversion: number;
+  assignedLeads: number
 };
