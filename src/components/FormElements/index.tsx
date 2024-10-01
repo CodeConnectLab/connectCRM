@@ -194,7 +194,24 @@ const FormElements = () => {
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
               <SelectGroupTwo />
-              <MultiSelect id="multiSelect" />
+              <MultiSelect
+                id="multiSelect"
+                label="Multiselect dropdown"
+                optionsList={[
+                  {
+                    label: "Design",
+                    value: "1",
+                  },
+                  {
+                    label: "Development",
+                    value: "2",
+                  },
+                  {
+                    label: "Option 3",
+                    value: "3",
+                  },
+                ]}
+              />
             </div>
           </div>
         </div>

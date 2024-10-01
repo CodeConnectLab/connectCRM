@@ -7,6 +7,7 @@ import Image from "next/image";
 import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import { LuUserPlus } from "react-icons/lu";
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -41,8 +42,15 @@ const menuGroups = [
         ),
         label: "Dashboard",
         route: "#",
+        children: [{ label: "Overview", route: "/" }],
+      },
+      {
+        icon: <LuUserPlus className="text-2xl" />,
+        label: "Lead",
+        route: "#",
         children: [
-          { label: "Overview", route: "/" },
+          { label: "Add Leads", route: "/leads/add-leads" },
+          { label: "All Leads", route: "/leads/all-leads" },
         ],
       },
       {
@@ -162,9 +170,7 @@ const menuGroups = [
         ),
         label: "Tables",
         route: "#",
-        children: [
-          { label: "Tables", route: "/tables" },
-        ],
+        children: [{ label: "Tables", route: "/tables" }],
       },
       {
         icon: (
@@ -186,9 +192,7 @@ const menuGroups = [
         ),
         label: "Pages",
         route: "#",
-        children: [
-          { label: "Settings", route: "/pages/settings" },
-        ],
+        children: [{ label: "Settings", route: "/pages/settings" }],
       },
     ],
   },
@@ -219,9 +223,7 @@ const menuGroups = [
         ),
         label: "Charts",
         route: "#",
-        children: [
-          { label: "Basic Chart", route: "/charts/basic-chart" },
-        ],
+        children: [{ label: "Basic Chart", route: "/charts/basic-chart" }],
       },
       {
         icon: (
@@ -288,9 +290,7 @@ const menuGroups = [
         ),
         label: "Authentication",
         route: "#",
-        children: [
-          { label: "Sign In", route: "/auth/signin" },
-        ],
+        children: [{ label: "Sign In", route: "/auth/signin" }],
       },
     ],
   },

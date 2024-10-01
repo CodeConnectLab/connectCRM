@@ -9,9 +9,19 @@ interface Option {
 
 interface DropdownProps {
   id: string;
+  label: string;
+  optionsList: { label: string; value: string | number }[];
+  required?: boolean;
+  disabled?: boolean;
 }
 
-const MultiSelect: React.FC<DropdownProps> = ({ id }) => {
+const MultiSelect: React.FC<DropdownProps> = ({
+  id,
+  label = "",
+  optionsList = [],
+  required = false,
+  disabled = false,
+}) => {
   const [options, setOptions] = useState<Option[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const [show, setShow] = useState(false);
@@ -96,14 +106,21 @@ const MultiSelect: React.FC<DropdownProps> = ({ id }) => {
   return (
     <div className="relative z-50">
       <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-        Multiselect Dropdown
+        {label || "Multiselect Dropdown"}
+        {required && <span className="text-red"> *</span>}
       </label>
       <div>
-        <select className="hidden" id={id}>
-          <option value="1">Design</option>
-          <option value="2">Development</option>
-          <option value="3">Option 4</option>
-          <option value="4">Option 5</option>
+        <select
+          className="hidden"
+          id={id}
+          disabled={disabled}
+          required={required}
+        >
+          {optionsList?.map((item) => (
+            <option key={item.value} value={item.value}>
+              {item.label}
+            </option>
+          ))}
         </select>
 
         <div className="flex flex-col items-center">
