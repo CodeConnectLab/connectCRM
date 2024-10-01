@@ -1,10 +1,153 @@
+"use client";
+
 import React from "react";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import Link from "next/link";
 import InputGroup from "@/components/FormElements/InputGroup";
+import type { CollapseProps } from "antd";
+import AdditionalLeadDetails from "./AdditionalLeadDetails";
+import CustomCollapse from "../FormElements/CustomCollapse";
+import DatePickerOne from "../FormElements/DatePicker/DatePickerOne";
+import MultiSelect from "../FormElements/MultiSelect";
 
+const selectOptionsData = {
+  leadSources: {
+    label: "Lead source",
+    options: [
+      {
+        value: "Facebook",
+        label: "Facebook",
+      },
+      {
+        value: "Google",
+        label: "Google",
+      },
+      {
+        value: "Twitter",
+        label: "Twitter",
+      },
+      {
+        value: "LinkedIn",
+        label: "LinkedIn",
+      },
+      {
+        value: "Instagram",
+        label: "Instagram",
+      },
+    ],
+  },
+  productAndService: {
+    label: "Product & Service",
+    options: [
+      {
+        value: "Bhutani",
+        label: "Bhutani",
+      },
+      {
+        value: "Delhi NCR",
+        label: "Delhi NCR",
+      },
+      {
+        value: "Mumbai",
+        label: "Mumbai",
+      },
+      {
+        value: "Chennai",
+        label: "Chennai",
+      },
+      {
+        value: "Kolkata",
+        label: "Kolkata",
+      },
+    ],
+  },
+  agents: {
+    label: "Assign to agents",
+    options: [
+      {
+        label: "Shashank",
+        value: 8948492799,
+      },
+      {
+        label: "Kiran",
+        value: 9321220039,
+      },
+      {
+        label: "Abhilekh",
+        value: 33098938928,
+      },
+    ],
+  },
+  status: {
+    label: "Lead status",
+    options: [
+      {
+        value: "Call Back",
+        label: "Call Back",
+      },
+      {
+        value: "Call Back-Re-visit",
+        label: "Call Back-Re-visit",
+      },
+      {
+        value: "Call Back-Schedule-visit",
+        label: "Call Back-Schedule-visit",
+      },
+      {
+        value: "Call Back-Visit",
+        label: "Call Back-Visit",
+      },
+      {
+        value: "Fake lead",
+        label: "Fake lead",
+      },
+      {
+        value: "Lost",
+        label: "Lost",
+      },
+      {
+        value: "Meeting",
+        label: "Meeting",
+      },
+      {
+        value: "Not Attempt",
+        label: "Not Attempt",
+      },
+      {
+        value: "Pending",
+        label: "Pending",
+      },
+      {
+        value: "SMS & Whatsapp Shoots",
+        label: "SMS & Whatsapp Shoots",
+      },
+      {
+        value: "Won",
+        label: "Won",
+      },
+    ],
+  },
+};
+
+const items: CollapseProps["items"] = [
+  {
+    key: "1",
+    label: (
+      <span className="text-body-sm font-medium text-white">
+        Additional details
+      </span>
+    ),
+    children: <AdditionalLeadDetails />,
+  },
+];
 export default function AddLeads() {
+  const handler = (key: string | string[]) => {
+    console.log(key);
+  };
+  const handleSubmit = (value: any) => {
+    console.log({ value });
+  };
   return (
     <div className="mt-auto w-auto ">
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-1">
@@ -16,71 +159,105 @@ export default function AddLeads() {
                 Basic Details
               </h3>
             </div>
-            <form action="#">
+            <form action={handleSubmit}>
               <div className="w-full p-6.5">
                 <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
                   <InputGroup
                     label="First name"
+                    name="firstName"
                     type="text"
-                    placeholder="Enter your first name"
+                    placeholder="Enter lead's first name"
                     customClasses="w-full xl:w-1/2"
+                    // value={formData.firstName}
+                    // onChange={handleInputChange}
                   />
-
                   <InputGroup
                     label="Last name"
+                    name="lastName"
                     type="text"
-                    placeholder="Enter your last name"
+                    placeholder="Enter lead's last name"
                     customClasses="w-full xl:w-1/2"
+                    // value={formData.lastName}
+                    // onChange={handleInputChange}
                   />
                 </div>
 
                 <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
                   <InputGroup
                     label="Email"
+                    name="email"
                     type="email"
-                    placeholder="Enter your email address"
+                    placeholder="Enter lead's email address"
                     customClasses="w-full xl:w-1/2"
                     required
+                    // value={formData.email}
+                    // onChange={handleInputChange}
                   />
-
                   <InputGroup
                     label="Contact number"
-                    type="number"
+                    name="contactNumber"
+                    type="tel"
                     required
-                    placeholder="Enter your subject"
+                    placeholder="Enter lead's contact number"
                     customClasses="w-full xl:w-1/2"
+                    // value={formData.contactNumber}
+                    // onChange={handleInputChange}
                   />
                 </div>
 
                 <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
                   <div className="w-full xl:w-1/2">
                     <SelectGroupOne
-                      label="Lead source"
-                      options={[
-                        {
-                          label: "Google",
-                          value: "google",
-                        },
-                        {
-                          label: "Facebook Ads",
-                          value: "facebook ads",
-                        },
-                      ]}
+                      label={selectOptionsData["leadSources"]?.label}
+                      options={selectOptionsData["leadSources"]?.options}
                     />
                   </div>
-                  <div className="mb-6 w-full xl:w-1/2">
-                    <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-                      Message
-                    </label>
-                    <textarea
-                      rows={6}
-                      placeholder="Type your message"
-                      className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary disabled:cursor-default dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
-                    ></textarea>
+                  <div className="w-full xl:w-1/2">
+                    <MultiSelect
+                      id="productAndService"
+                      label={selectOptionsData["productAndService"]?.label}
+                      optionsList={
+                        selectOptionsData["productAndService"]?.options
+                      }
+                    />
                   </div>
                 </div>
 
-                <button className="flex w-full justify-center rounded-[7px] bg-primary p-[13px] font-medium text-white hover:bg-opacity-90">
+                <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
+                  <div className="w-full xl:w-1/2">
+                    <SelectGroupOne
+                      label={selectOptionsData["agents"]?.label}
+                      options={selectOptionsData["agents"]?.options}
+                    />
+                  </div>
+                  <div className="w-full xl:w-1/2">
+                    <SelectGroupOne
+                      label={selectOptionsData["status"]?.label}
+                      options={selectOptionsData["status"]?.options}
+                    />
+                  </div>
+                </div>
+                <div className="mb-4.5 w-full">
+                  <DatePickerOne label={"Follow-up date"} />
+                </div>
+                <div className="mb-6 w-full ">
+                  <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+                    Description
+                  </label>
+                  <textarea
+                    rows={3}
+                    placeholder="Enter description / note about lead."
+                    className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary disabled:cursor-default dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary"
+                  ></textarea>
+                </div>
+                <div className="mb-6 w-full ">
+                  <CustomCollapse items={items} />
+                </div>
+
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-[7px] bg-primary p-[13px] font-medium text-white hover:bg-opacity-90"
+                >
                   Send Message
                 </button>
               </div>

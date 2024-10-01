@@ -21,7 +21,7 @@ const SelectGroupOne = ({
   };
 
   return (
-    <div className="mb-4.5">
+    <div className="w-full">
       <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
         {label}
         {required && <span className="text-red"> *</span>}
@@ -36,7 +36,7 @@ const SelectGroupOne = ({
             setSelectedOptionLocal(e.target.value);
             changeTextColor();
           }}
-          className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary ${
+          className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary disabled:cursor-default disabled:bg-gray-2 dark:disabled:bg-dark ${
             isOptionSelected ? "text-dark dark:text-white" : ""
           }`}
         >
