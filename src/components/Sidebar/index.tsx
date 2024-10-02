@@ -49,8 +49,9 @@ const menuGroups = [
         label: "Lead",
         route: "#",
         children: [
-          { label: "Add Leads", route: "/leads/add-leads" },
-          { label: "All Leads", route: "/leads/all-leads" },
+          { label: "Add Leads", route: "/leads/add" },
+          { label: "All Leads", route: "/leads/all" },
+          { label: "Follow Up Leads", route: "/leads/followup" },
         ],
       },
       {

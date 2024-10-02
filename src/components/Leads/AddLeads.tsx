@@ -176,7 +176,6 @@ export default function AddLeads() {
   };
 
   const handleDateChange = (selectedDates: Date[], dateStr: string) => {
-    console.log({selectedDates});
     
     setFormData((prevData) => ({
       ...prevData,
