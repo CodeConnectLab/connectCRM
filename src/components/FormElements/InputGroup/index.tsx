@@ -3,7 +3,7 @@ import React from "react";
 interface InputGroupProps {
   customClasses?: string;
   label: string;
-  name: string;
+  name?: string;
   type: string;
   placeholder: string;
   required?: boolean;
