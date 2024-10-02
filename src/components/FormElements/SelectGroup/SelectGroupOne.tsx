@@ -1,6 +1,6 @@
 "use client";
 import { SelectProps } from "@/types/selectType";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const SelectGroupOne = ({
   customClasses,
@@ -8,7 +8,7 @@ const SelectGroupOne = ({
   required,
   disabled,
   options,
-  setSelectedOption,
+  setSelectedOption = () => {},
   selectedOption = "",
 }: SelectProps) => {
   const [selectedOptionLocal, setSelectedOptionLocal] = useState<
@@ -19,6 +19,10 @@ const SelectGroupOne = ({
   const changeTextColor = () => {
     setIsOptionSelected(true);
   };
+
+  useEffect(() => {
+    setSelectedOption(selectedOptionLocal);
+  }, [selectedOptionLocal]);
 
   return (
     <div className="w-full">
@@ -36,7 +40,7 @@ const SelectGroupOne = ({
             setSelectedOptionLocal(e.target.value);
             changeTextColor();
           }}
-          className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary disabled:cursor-default disabled:bg-gray-2 dark:disabled:bg-dark ${
+          className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary dark:disabled:bg-dark ${
             isOptionSelected ? "text-dark dark:text-white" : ""
           }`}
         >
