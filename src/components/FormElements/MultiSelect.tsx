@@ -13,6 +13,7 @@ interface DropdownProps {
   optionsList: { label: string; value: string | number }[];
   required?: boolean;
   disabled?: boolean;
+  onChange: (option: string[] | number[]) => void;
 }
 
 const MultiSelect: React.FC<DropdownProps> = ({
@@ -21,6 +22,7 @@ const MultiSelect: React.FC<DropdownProps> = ({
   optionsList = [],
   required = false,
   disabled = false,
+  onChange = () => {},
 }) => {
   const [options, setOptions] = useState<Option[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
@@ -102,6 +104,10 @@ const MultiSelect: React.FC<DropdownProps> = ({
     document.addEventListener("click", clickHandler);
     return () => document.removeEventListener("click", clickHandler);
   });
+
+  useEffect(() => {
+    onChange(selected);
+  }, [selected]);
 
   return (
     <div className="relative z-50">
