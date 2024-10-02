@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const CheckboxTwo = ({
   label = "",
-  id = 0,
+  id = "",
   onChange = () => {},
 }: {
   label?: string;
-  id: number;
-  onChange?: (value: { value: number; isChecked: boolean }) => void;
+  id: string ;
+  onChange?: (value: { value: string; isChecked: boolean }) => void;
 }) => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   return (

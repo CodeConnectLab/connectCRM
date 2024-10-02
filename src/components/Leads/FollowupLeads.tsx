@@ -7,14 +7,14 @@ import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
 import LeadsTableHeader from "./LeadsTableHeader";
 const Option = Select;
 const FollowupLeads = () => {
-  const [selectedRowKeys, setSelectedRowKeys] = useState<number[]>([]);
+  const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
 
   const columns = [
     {
       title: "Checkbox",
       dataIndex: "key",
       key: "Checkbox",
-      render: (data: number) => (
+      render: (data: string) => (
         <div>
           <CheckboxTwo id={data} onChange={rowSelection} />
         </div>
@@ -172,7 +172,7 @@ const FollowupLeads = () => {
     value,
     isChecked,
   }: {
-    value: number;
+    value: string;
     isChecked: boolean;
   }) => {
     if (isChecked) {
