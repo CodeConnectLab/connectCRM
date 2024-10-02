@@ -56,32 +56,37 @@ export default function AdditionalLeadDetails() {
           ]}
         />
 
-        <InputGroup label="City" type="text" placeholder="Enter lead's City" />
+        <InputGroup name="City" label="City" type="text" placeholder="Enter lead's City" />
       </div>
       <div className="flex w-full flex-col justify-between gap-3.5 xl:w-1/2">
         <InputGroup
           label="Website"
           type="text"
+          name="Website"
           placeholder="Enter lead's website URL"
         />
         <InputGroup
           label="Company name"
           type="text"
+          name="CompanyName"
           placeholder="Enter lead's company name"
         />
         <InputGroup
           label="Lead cost"
           type="email"
+          name="LeadCost"
           placeholder="Enter lead acquisition cost "
         />
         <InputGroup
           label="Alternate phone"
           type="tel"
+          name="AlternatePhone"
           placeholder="Enter lead's alternate phone"
         />
         <InputGroup
           label="Pin Code"
-          type="text"
+          name="PinCode"
+          type="number"
           placeholder="Enter lead's pin code"
         />
       </div>

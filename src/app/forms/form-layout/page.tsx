@@ -25,7 +25,7 @@ const FormLayout = () => {
                 Contact Form
               </h3>
             </div>
-            <form action="#">
+            {/* <form action="#">
               <div className="p-6.5">
                 <div className="mb-4.5 flex flex-col gap-4.5 xl:flex-row">
                   <InputGroup
@@ -75,7 +75,7 @@ const FormLayout = () => {
                   Send Message
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
 
@@ -87,7 +87,7 @@ const FormLayout = () => {
                 Sign In Form
               </h3>
             </div>
-            <form action="#">
+            {/* <form action="#">
               <div className="p-6.5">
                 <InputGroup
                   label="Email"
@@ -145,7 +145,7 @@ const FormLayout = () => {
                   Sign In
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
 
           {/* <!-- Sign Up Form --> */}
@@ -155,7 +155,7 @@ const FormLayout = () => {
                 Sign Up Form
               </h3>
             </div>
-            <form action="#">
+            {/* <form action="#">
               <div className="p-6.5">
                 <InputGroup
                   label="Name"
@@ -189,7 +189,7 @@ const FormLayout = () => {
                   Sign Up
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
       </div>
