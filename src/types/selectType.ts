@@ -22,7 +22,7 @@ export type SelectOption = {
     /**
      * The label for the select component
      */
-    label: string;
+    label?: string;
   
     /**
      * Whether the select component is required
