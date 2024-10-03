@@ -123,7 +123,7 @@ const CustomAntdTable = ({ columns, dataSource }: TableProps) => {
         .dark .ant-table-tbody > tr:hover > td {
           background: #1e2837 important;
         }
-        .dark :where(.css-dev-only-do-not-override-5wsri9).ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, :where(.css-dev-only-do-not-override-5wsri9).ant-table-wrapper .ant-table-thead >tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before{
+        .dark .ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, .ant-table-wrapper .ant-table-thead >tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before{
           background: transparent;
         }
       `}</style>
