@@ -43,7 +43,7 @@ const CalendarBox: React.FC = () => {
         onSelect={onSelect}
         onPanelChange={onPanelChange}
       />
-      <style>{`
+      <style jsx global>{`
     .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-panel {
       background: #122031 !important;
     }
