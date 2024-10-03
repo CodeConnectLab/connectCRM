@@ -44,19 +44,23 @@ const CalendarBox: React.FC = () => {
         onPanelChange={onPanelChange}
       />
       <style jsx global>{`
-    .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-panel {
+    .dark .ant-picker-calendar.ant-picker-calendar-full .ant-picker-panel {
       background: #122031 !important;
     }
     
-    .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date-today{
-      background: #374151 ;
+    .dark .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date-today{
+      background-color: #374151 ;
+    }
+
+    .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-calendar-date-today{
+      background-color: #e6f4ff ;
     }
       
-    :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar{
+    .ant-picker-calendar{
       background: transparent !important;
 
     }
-    :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar .ant-picker-content th{
+    .ant-picker-calendar .ant-picker-content th{
       color: white;
       text-align:center
     }
@@ -69,29 +73,29 @@ const CalendarBox: React.FC = () => {
       height: 41px;
     }
 
-    .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar .ant-picker-cell{
+    .dark .ant-picker-calendar .ant-picker-cell{
     color: rgb(156 163 175) ;
     }
 
-    .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar .ant-picker-cell-in-view{
+    .dark .ant-picker-calendar .ant-picker-cell-in-view{
       color: white ;
     }
     
-    .dark :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-calendar-date{
+    .dark .ant-picker-calendar.ant-picker-calendar-full .ant-picker-calendar-date{
       border-color: white;
     }
 
-    :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value{
+    .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value{
       font-size: 24px;
     }
 
-    :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value{
+    .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, .ant-picker-calendar.ant-picker-calendar-full .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value{
       color: #3183f6;
       font-size: 26px;
       font-weight: 600;
     }
 
-    :where(.css-dev-only-do-not-override-5wsri9).ant-picker-calendar .ant-picker-calendar-header{
+    .ant-picker-calendar .ant-picker-calendar-header{
       border-radius: 8px;
       background: #5750F1;
       padding: 12px 12px;
