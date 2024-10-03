@@ -7,7 +7,7 @@ export default function CustomCollapse({ items }: CollapseProps) {
     <>
       <Collapse items={items} defaultActiveKey={["1"]} className="bg-primary" />
 
-      <style>{`
+      <style jsx global>{`
         :where(.css-dev-only-do-not-override-5wsri9).ant-collapse>.ant-collapse-item >.ant-collapse-header .ant-collapse-arrow{
             color: white;
         }
