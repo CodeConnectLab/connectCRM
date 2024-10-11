@@ -5,6 +5,7 @@ import { EditOutlined } from "@ant-design/icons";
 import CustomAntdTable from "../Tables/CustomAntdTable";
 import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
 import LeadsTableHeader from "./LeadsTableHeader";
+import Link from "next/link";
 const Option = Select;
 const AllLeads = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
@@ -52,10 +53,12 @@ const AllLeads = () => {
     },
     {
       title: "Action",
-      key: "action",
-      render: () => (
+      key: "key",
+      render: (record: { key: string }) => (
         <div className="flex space-x-2">
-          <Button icon={<EditOutlined />} className="bg-primary text-white" />
+          <Link href={`/leads/${record.key}`}>
+            <Button icon={<EditOutlined />} className="bg-primary text-white" />
+          </Link>
           <Button icon="C" className="bg-green text-sm text-white" />
         </div>
       ),
@@ -190,7 +193,7 @@ const AllLeads = () => {
 
   return (
     <div className="p-4">
-      <LeadsTableHeader/>
+      <LeadsTableHeader />
       {/* <Table
         // rowSelection={rowSelection}
         columns={columns}
