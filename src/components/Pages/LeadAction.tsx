@@ -6,6 +6,7 @@ import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "../Buttons/ButtonDefault";
 import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
+import AllDetailsFields from "./Components/AllDetailsFields";
 
 const { TabPane } = Tabs;
 
@@ -252,7 +253,7 @@ const LeadAction: React.FC = () => {
           />
         </TabPane>
         <TabPane tab="All Details" key="2">
-          Content for All Details
+          <AllDetailsFields/>
         </TabPane>
         <TabPane tab="Additional Information" key="3">
           Content for Additional Information
