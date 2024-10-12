@@ -4,12 +4,14 @@ const CheckboxTwo = ({
   label = "",
   id = "",
   onChange = () => {},
+  checked = false,
 }: {
   label?: string;
-  id: string ;
+  id: string;
   onChange?: (value: { value: string; isChecked: boolean }) => void;
+  checked?: boolean;
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<boolean>(checked);
   return (
     <div>
       <label

@@ -112,7 +112,7 @@ export default function LeadsTableHeader() {
               options={selectOptionsData["agents"]?.options}
               setSelectedOption={(value) => handleSelectChange("agents", value)}
             />
-            <ButtonDefault label="Submit" variant="primary" />
+            <ButtonDefault label="Submit" variant="primary" fullWidth />
           </div>
         </div>
         <div className="flex flex-col gap-2 ">
@@ -120,6 +120,7 @@ export default function LeadsTableHeader() {
             icon={<SearchOutlined />}
             label="Advance Filter"
             variant="outline"
+            fullWidth
           />
           <div className="flex gap-2">
             <ButtonDefault label="↓ Import" variant="outline" />
@@ -129,8 +130,8 @@ export default function LeadsTableHeader() {
       </div>
       <div className="mb-4 flex justify-between">
         <div className="flex min-w-[330px] gap-2">
-          <ButtonDefault label="Select All" variant="primary" />
-          <ButtonDefault label="Select Per Page" variant="secondary" />
+          <ButtonDefault label="Select All" variant="primary" fullWidth/>
+          <ButtonDefault label="Select Per Page" variant="secondary" fullWidth/>
         </div>
         <div className="ml-2 w-full">
           <SearchForm customClasses="border-stroke-dark" />

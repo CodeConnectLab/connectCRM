@@ -102,8 +102,8 @@ const ButtonDefault = ({
                     : "bg-transparent text-black"
             } ${
               disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
-            } flex items-center w-full rounded-md justify-center gap-2.5  py-3 text-center font-medium transition-colors duration-200 hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 min-w-[130px] max-h-[50px] ${
-              fullWidth && "w-full"
+            } flex max-h-[50px] w-full min-w-[130px] items-center justify-center  gap-2.5 rounded-md py-3 text-center font-medium transition-colors duration-200 hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ${
+              fullWidth ? "!w-full" : "!max-w-[130px]"
             }`}
             onClick={(e) => {
               e.preventDefault();
