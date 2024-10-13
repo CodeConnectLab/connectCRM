@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
-import { Button } from "antd";
+import React, { useState, useRef } from "react";
+import { message, Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "@/components/Buttons/ButtonDefault";
 import FileUploadFillType from "../FormElements/FileUpload/FileUploadFillType";
@@ -16,12 +17,24 @@ const ImportLeads: React.FC = () => {
     country: "",
     state: "",
   });
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      setSelectedFile(event.target.files[0]);
+    const file = event.target.files?.[0];
+    if (file) {
+      const fileExtension = file.name.split('.').pop()?.toLowerCase();
+      if (fileExtension === 'xlsx' || fileExtension === 'xls') {
+        setSelectedFile(file);
+        message.success('Excel file selected successfully');
+      } else {
+        message.error('Please select only Excel files (.xlsx or .xls)');
+        if (fileInputRef.current) {
+          fileInputRef.current.value = '';
+        }
+      }
     }
   };
+
 
   const handleSelectChange = (name: string, value: string | number) => {
     setFormData((prevData) => ({
@@ -57,6 +70,9 @@ const ImportLeads: React.FC = () => {
         <FileUploadFillType
           onChange={handleFileChange}
           customClasses="w-full"
+          accept=".xlsx,.xls"
+          ref={fileInputRef}
+          tooltipInfo="Only .xls and .xlsx formats are allowed to upload"
         />
         <ButtonDefault
           label="Download Sample File"
@@ -100,30 +116,14 @@ const ImportLeads: React.FC = () => {
           setSelectedOption={(value) => handleSelectChange("state", value)}
         />
       </div>
-
-      <ButtonDefault
-        label="Next"
-        onClick={handleNextClick}
-        variant="primary"
-        customClasses="w-full bg-primary text-white"
-      />
-
-      <style jsx global>{`
-        .dark .ant-select-selector {
-          background-color: #374151 !important;
-          border-color: #4b5563 !important;
-          color: #e5e7eb !important;
-        }
-        .dark .ant-select-arrow {
-          color: #e5e7eb !important;
-        }
-        .dark .ant-btn-primary {
-          background-color: #1890ff;
-        }
-        .dark .ant-btn-primary:hover {
-          background-color: #40a9ff;
-        }
-      `}</style>
+      <div className="flex w-full justify-center">
+        <ButtonDefault
+          label="Next"
+          onClick={handleNextClick}
+          variant="primary"
+          customClasses="w-full bg-primary text-white"
+        />
+      </div>
     </div>
   );
 };
