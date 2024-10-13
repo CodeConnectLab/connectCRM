@@ -11,7 +11,7 @@ const LeadActionPage = () => {
 
   return (
     <DefaultLayout>
-      <Breadcrumb pageName="Form Layout" />
+      <Breadcrumb pageName="Lead action" />
       <LeadAction />
     </DefaultLayout>
   );

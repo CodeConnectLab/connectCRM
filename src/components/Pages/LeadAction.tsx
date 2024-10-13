@@ -7,6 +7,9 @@ import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne
 import ButtonDefault from "../Buttons/ButtonDefault";
 import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
 import AllDetailsFields from "./Components/AllDetailsFields";
+import AdditionalInformation from "./Components/AdditionalInformation";
+import AttachmentTab from "./Components/AttachmentTab";
+import CustomAntdTable from "../Tables/CustomAntdTable";
 
 const { TabPane } = Tabs;
 
@@ -157,7 +160,7 @@ const LeadAction: React.FC = () => {
     <div className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-dark">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-2xl font-semibold text-dark dark:text-white">
-          Followup
+          Basic Details
         </h2>
         {/* Messaging buttons :  can be used in Future.  */}
         {/* <div>
@@ -243,9 +246,9 @@ const LeadAction: React.FC = () => {
         />
       </div>
 
-      <Tabs defaultActiveKey="1" className="mt-6">
+      <Tabs defaultActiveKey="1" className="mt-6" type="card">
         <TabPane tab="History" key="1">
-          <Table
+          <CustomAntdTable
             columns={columns}
             dataSource={data}
             pagination={false}
@@ -253,28 +256,34 @@ const LeadAction: React.FC = () => {
           />
         </TabPane>
         <TabPane tab="All Details" key="2">
-          <AllDetailsFields/>
+          <AllDetailsFields />
         </TabPane>
         <TabPane tab="Additional Information" key="3">
-          Content for Additional Information
+          <AdditionalInformation />
         </TabPane>
         <TabPane tab="Attachment" key="4">
-          Content for Attachment
+          <AttachmentTab />
         </TabPane>
       </Tabs>
 
       <style jsx global>{`
         .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-          color: #1890ff;
+          color: #5750F1 !important;
         }
-        .ant-tabs-ink-bar {
-          background: #1890ff;
+        .ant-tabs .ant-tabs-tab:hover{
+          color: #5750F1 !important;
         }
-        .dark .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+        .dark .ant-tabs .ant-tabs-tab-btn {
           color: #fff;
         }
-        .dark .ant-tabs-ink-bar {
-          background: #fff;
+          .ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
+        .ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
+        .ant-tabs .ant-tabs-tab-btn:active,
+        .ant-tabs .ant-tabs-tab-remove:active {
+          color: #5750f1 !important;
+        }
+        .ant-tabs-ink-bar {
+          background: #5750F1 !important;
         }
         .dark .ant-table {
           background: transparent;
