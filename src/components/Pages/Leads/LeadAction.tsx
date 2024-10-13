@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Tabs, Table } from "antd";
-import { WhatsAppOutlined, MessageOutlined } from "@ant-design/icons";
 import InputGroup from "@/components/FormElements/InputGroup";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
@@ -12,6 +11,7 @@ import AllDetailsFields from "../Components/AllDetailsFields";
 import AdditionalInformation from "../Components/AdditionalInformation";
 import AttachmentTab from "../Components/AttachmentTab";
 import CustomAntdTable from "../../Tables/CustomAntdTable";
+import DateTimePicker from "@/components/FormElements/DatePicker/DateTimePicker";
 
 const { TabPane } = Tabs;
 
@@ -27,6 +27,15 @@ const statusOptions = [
   { value: "Pending", label: "Pending" },
   { value: "SMS & Whatsapp Shoots", label: "SMS & Whatsapp Shoots" },
   { value: "Won", label: "Won" },
+];
+
+const lostReasonOptions = [
+  { value: "notInterested", label: "Not Interested" },
+  { value: "noRequirement", label: "No Requirement" },
+  { value: "budgetIssue", label: "Budget Issue" },
+  { value: "already_using", label: "Already Using" },
+  { value: "noBusiness", label: "No Business" },
+  { value: "noTeam", label: "No Team" },
 ];
 
 const staticData = [
@@ -115,6 +124,8 @@ const LeadAction: React.FC = () => {
     followup: "",
     description: "",
     addToCalendar: false,
+    wonAmount: 0,
+    lostReason: "",
   });
 
   const handleInputChange = (
@@ -156,6 +167,35 @@ const LeadAction: React.FC = () => {
 
   const handleSubmit = () => {
     console.log("Form data:", formData);
+  };
+
+  const renderHiddenField = (fieldName: string) => {
+    switch (fieldName) {
+      case "Won":
+        return (
+          <InputGroup
+            label="Won amount"
+            name="wonAmount"
+            type="number"
+            value={formData.wonAmount}
+            onChange={handleInputChange}
+            required
+          />
+        );
+      case "Lost":
+        return (
+          <SelectGroupOne
+            label="Lost Reason"
+            required
+            options={lostReasonOptions}
+            setSelectedOption={(value) =>
+              handleSelectChange("lostReason", value)
+            }
+          />
+        );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -212,8 +252,9 @@ const LeadAction: React.FC = () => {
             options={statusOptions}
             setSelectedOption={(value) => handleSelectChange("status", value)}
           />
+          {renderHiddenField(formData?.status)}
 
-          <DatePickerOne label="Followup" onChange={handleDateChange} />
+          <DateTimePicker label="Followup" onChange={handleDateChange} />
 
           <div>
             <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
@@ -270,22 +311,22 @@ const LeadAction: React.FC = () => {
 
       <style jsx global>{`
         .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-          color: #5750F1 !important;
+          color: #5750f1 !important;
         }
-        .ant-tabs .ant-tabs-tab:hover{
-          color: #5750F1 !important;
+        .ant-tabs .ant-tabs-tab:hover {
+          color: #5750f1 !important;
         }
         .dark .ant-tabs .ant-tabs-tab-btn {
           color: #fff;
         }
-          .ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
+        .ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
         .ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
         .ant-tabs .ant-tabs-tab-btn:active,
         .ant-tabs .ant-tabs-tab-remove:active {
           color: #5750f1 !important;
         }
         .ant-tabs-ink-bar {
-          background: #5750F1 !important;
+          background: #5750f1 !important;
         }
         .dark .ant-table {
           background: transparent;
