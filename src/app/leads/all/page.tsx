@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
-import AllLeads from "@/components/Leads/AllLeads";
+import AllLeads from "@/components/Pages/Leads/AllLeads";
 
 export const metadata: Metadata = metadataStatic;
 

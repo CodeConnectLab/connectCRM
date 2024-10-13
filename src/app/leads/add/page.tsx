@@ -4,7 +4,7 @@ import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
 import dynamic from 'next/dynamic'
 
-const AddLeads = dynamic(() => import('@/components/Leads/AddLeads'), { ssr: false })
+const AddLeads = dynamic(() => import('@/components/Pages/Leads/AddLeads'), { ssr: false })
 export const metadata: Metadata = metadataStatic;
 
 const AddLeadsPage = () => {
