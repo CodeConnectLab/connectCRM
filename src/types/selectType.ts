@@ -38,7 +38,6 @@ export type SelectProps = {
    * The currently selected option
    */
   selectedOption?: string | number;
-  placeholder?: string;
 
   /**
    * A function to set the selected option

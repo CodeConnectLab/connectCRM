@@ -10,7 +10,6 @@ const SelectGroupOne = ({
   options,
   setSelectedOption = () => {},
   selectedOption = "",
-  placeholder = "",
 }: SelectProps) => {
   const [selectedOptionLocal, setSelectedOptionLocal] = useState<
     string | number
@@ -39,7 +38,6 @@ const SelectGroupOne = ({
           value={selectedOptionLocal}
           required={required}
           disabled={disabled}
-          placeholder={placeholder}
           onChange={(e) => {
             setSelectedOptionLocal(e.target.value);
             changeTextColor();
