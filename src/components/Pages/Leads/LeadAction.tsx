@@ -1,9 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { Button, Tabs, Table } from "antd";
+import React, { useState } from "react";
 import InputGroup from "@/components/FormElements/InputGroup";
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "../../Buttons/ButtonDefault";
 import CheckboxTwo from "../../FormElements/Checkboxes/CheckboxTwo";
@@ -12,8 +10,7 @@ import AdditionalInformation from "../Components/AdditionalInformation";
 import AttachmentTab from "../Components/AttachmentTab";
 import CustomAntdTable from "../../Tables/CustomAntdTable";
 import DateTimePicker from "@/components/FormElements/DatePicker/DateTimePicker";
-
-const { TabPane } = Tabs;
+import TabPanel from "@/components/TabPanel/TabPanel";
 
 const statusOptions = [
   { value: "Call Back", label: "Call Back" },
@@ -198,6 +195,25 @@ const LeadAction: React.FC = () => {
     }
   };
 
+  const tabsData = [
+    {
+      tabName: "History",
+      component: <CustomAntdTable columns={columns} dataSource={data} />,
+    },
+    {
+      tabName: "All Details",
+      component: <AllDetailsFields />,
+    },
+    {
+      tabName: "Additional Information",
+      component: <AdditionalInformation />,
+    },
+    {
+      tabName: "Attachment",
+      component: <AttachmentTab />,
+    },
+  ];
+
   return (
     <div className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-dark">
       <div className="mb-6 flex items-center justify-between">
@@ -289,61 +305,12 @@ const LeadAction: React.FC = () => {
         />
       </div>
 
-      <Tabs defaultActiveKey="1" className="mt-6" type="card">
-        <TabPane tab="History" key="1">
-          <CustomAntdTable
-            columns={columns}
-            dataSource={data}
-            pagination={false}
-            className="dark:bg-gray-dark"
-          />
-        </TabPane>
-        <TabPane tab="All Details" key="2">
-          <AllDetailsFields />
-        </TabPane>
-        <TabPane tab="Additional Information" key="3">
-          <AdditionalInformation />
-        </TabPane>
-        <TabPane tab="Attachment" key="4">
-          <AttachmentTab />
-        </TabPane>
-      </Tabs>
-
-      <style jsx global>{`
-        .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-          color: #5750f1 !important;
-        }
-        .ant-tabs .ant-tabs-tab:hover {
-          color: #5750f1 !important;
-        }
-        .dark .ant-tabs .ant-tabs-tab-btn {
-          color: #fff;
-        }
-        .ant-tabs .ant-tabs-tab-btn:focus:not(:focus-visible),
-        .ant-tabs .ant-tabs-tab-remove:focus:not(:focus-visible),
-        .ant-tabs .ant-tabs-tab-btn:active,
-        .ant-tabs .ant-tabs-tab-remove:active {
-          color: #5750f1 !important;
-        }
-        .ant-tabs-ink-bar {
-          background: #5750f1 !important;
-        }
-        .dark .ant-table {
-          background: transparent;
-          color: white;
-        }
-        .dark .ant-table-thead > tr > th {
-          background: #1e2837;
-          color: white;
-          border-bottom: 1px solid #2d3748;
-        }
-        .dark .ant-table-tbody > tr > td {
-          border-bottom: 1px solid #2d3748;
-        }
-        .dark .ant-table-tbody > tr:hover > td {
-          background: #2d3748;
-        }
-      `}</style>
+      <TabPanel
+        tabsData={tabsData}
+        type="card"
+        defaultActiveKey="1"
+        customClassName="mt-6"
+      />
     </div>
   );
 };

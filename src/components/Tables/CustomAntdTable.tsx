@@ -6,6 +6,7 @@ import {
   DownloadOutlined,
 } from "@ant-design/icons";
 import type { TableProps } from "antd";
+
 const columnsLocal = [
   {
     title: "Package",
@@ -87,7 +88,7 @@ const dataLocal = [
     status: "Pending",
   },
 ];
-const CustomAntdTable = ({ columns, dataSource }: TableProps) => {
+const CustomAntdTable = ({ columns, dataSource }: any) => {
   return (
     <div>
       <Table
@@ -123,7 +124,19 @@ const CustomAntdTable = ({ columns, dataSource }: TableProps) => {
         .dark .ant-table-tbody > tr:hover > td {
           background: #1e2837 important;
         }
-        .dark .ant-table-wrapper .ant-table-thead >tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before, .ant-table-wrapper .ant-table-thead >tr>td:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before{
+        .dark
+          .ant-table-wrapper
+          .ant-table-thead
+          > tr
+          > th:not(:last-child):not(.ant-table-selection-column):not(
+            .ant-table-row-expand-icon-cell
+          ):not([colspan])::before,
+        .ant-table-wrapper
+          .ant-table-thead
+          > tr
+          > td:not(:last-child):not(.ant-table-selection-column):not(
+            .ant-table-row-expand-icon-cell
+          ):not([colspan])::before {
           background: transparent;
         }
       `}</style>

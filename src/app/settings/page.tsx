@@ -2,9 +2,8 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
-import dynamic from 'next/dynamic'
+import Settings from "@/components/Pages/Settings/Settings";
 
-const AddLeads = dynamic(() => import('@/components/Pages/Leads/AddLeads'), { ssr: false })
 export const metadata: Metadata = metadataStatic;
 
 const SettingsPage = () => {
@@ -12,7 +11,7 @@ const SettingsPage = () => {
     <DefaultLayout>
       <div className="mx-auto max-w-7xl">
         <Breadcrumb pageName="Settings" />
-        {/* <AddLeads />{" "} */}
+        <Settings />{" "}
       </div>
     </DefaultLayout>
   );
