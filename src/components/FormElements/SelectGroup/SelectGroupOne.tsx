@@ -43,7 +43,7 @@ const SelectGroupOne = ({
             changeTextColor();
           }}
           className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary dark:disabled:bg-dark ${
-            isOptionSelected ? "text-dark dark:text-white" : ""
+            isOptionSelected ? "text-dark dark:text-white" : "text-gray-5"
           }`}
         >
           {options?.map((item) => (
