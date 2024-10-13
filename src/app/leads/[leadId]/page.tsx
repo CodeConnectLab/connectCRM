@@ -2,7 +2,7 @@
 import { Metadata } from "next";
 import React from "react";
 import { useParams } from "next/navigation";
-import LeadAction from "@/components/Pages/LeadAction";
+import LeadAction from "@/components/Pages/Leads/LeadAction";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";

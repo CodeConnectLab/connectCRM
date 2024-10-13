@@ -1,13 +1,13 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Table, Button, Input, Select, Checkbox } from "antd";
 import { EditOutlined } from "@ant-design/icons";
-import CustomAntdTable from "../Tables/CustomAntdTable";
-import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
+import CustomAntdTable from "../../Tables/CustomAntdTable";
+import CheckboxTwo from "../../FormElements/Checkboxes/CheckboxTwo";
 import LeadsTableHeader from "./LeadsTableHeader";
-import Link from "next/link";
 const Option = Select;
-const AllLeads = () => {
+const FollowupLeads = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<string[]>([]);
 
   const columns = [
@@ -42,14 +42,9 @@ const AllLeads = () => {
       key: "agent",
     },
     {
-      title: "Status",
+      title: "Follow-Up date",
       dataIndex: "status",
-      key: "status",
-    },
-    {
-      title: "Service",
-      dataIndex: "service",
-      key: "service",
+      key: "followUp",
     },
     {
       title: "Action",
@@ -206,7 +201,6 @@ const AllLeads = () => {
         }}
       /> */}
       <CustomAntdTable columns={columns} dataSource={data} />
-
       <div className="mt-4 flex items-center justify-between">
         <Select defaultValue="10" className="w-32">
           <Option value="10">10</Option>
@@ -217,4 +211,4 @@ const AllLeads = () => {
   );
 };
 
-export default AllLeads;
+export default FollowupLeads;

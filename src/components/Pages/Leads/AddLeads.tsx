@@ -5,10 +5,10 @@ import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne
 import InputGroup from "@/components/FormElements/InputGroup";
 import type { CollapseProps } from "antd";
 import AdditionalLeadDetails from "./AdditionalLeadDetails";
-import CustomCollapse from "../FormElements/CustomCollapse";
-import DatePickerOne from "../FormElements/DatePicker/DatePickerOne";
-import MultiSelect from "../FormElements/MultiSelect";
-import ButtonDefault from "../Buttons/ButtonDefault";
+import CustomCollapse from "../../FormElements/CustomCollapse";
+import DatePickerOne from "../../FormElements/DatePicker/DatePickerOne";
+import MultiSelect from "../../FormElements/MultiSelect";
+import ButtonDefault from "../../Buttons/ButtonDefault";
 
 const selectOptionsData = {
   leadSources: {

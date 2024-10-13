@@ -2,19 +2,19 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
-import FollowupLeads from "@/components/Pages/Leads/FollowupLeads";
+import EmployeeList from "@/components/Pages/CallManage/EmployeeList";
 
 export const metadata: Metadata = metadataStatic;
 
-const FollowupLeadsPage = () => {
+const EmployeeListPage = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-7xl">
-        <Breadcrumb pageName="Follow-Up leads" />
-        <FollowupLeads/>
-     </div>
+        <Breadcrumb pageName="Employee List" />
+        <EmployeeList />
+      </div>
     </DefaultLayout>
   );
 };
 
-export default FollowupLeadsPage;
+export default EmployeeListPage;

@@ -5,7 +5,7 @@ import { message, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "@/components/Buttons/ButtonDefault";
-import FileUploadFillType from "../FormElements/FileUpload/FileUploadFillType";
+import FileUploadFillType from "../../FormElements/FileUpload/FileUploadFillType";
 
 const ImportLeads: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

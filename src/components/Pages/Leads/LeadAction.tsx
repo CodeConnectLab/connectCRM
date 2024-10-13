@@ -6,12 +6,12 @@ import { WhatsAppOutlined, MessageOutlined } from "@ant-design/icons";
 import InputGroup from "@/components/FormElements/InputGroup";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
-import ButtonDefault from "../Buttons/ButtonDefault";
-import CheckboxTwo from "../FormElements/Checkboxes/CheckboxTwo";
-import AllDetailsFields from "./Components/AllDetailsFields";
-import AdditionalInformation from "./Components/AdditionalInformation";
-import AttachmentTab from "./Components/AttachmentTab";
-import CustomAntdTable from "../Tables/CustomAntdTable";
+import ButtonDefault from "../../Buttons/ButtonDefault";
+import CheckboxTwo from "../../FormElements/Checkboxes/CheckboxTwo";
+import AllDetailsFields from "../Components/AllDetailsFields";
+import AdditionalInformation from "../Components/AdditionalInformation";
+import AttachmentTab from "../Components/AttachmentTab";
+import CustomAntdTable from "../../Tables/CustomAntdTable";
 
 const { TabPane } = Tabs;
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import SelectGroupOne from "../FormElements/SelectGroup/SelectGroupOne";
-import ButtonDefault from "../Buttons/ButtonDefault";
-import SearchForm from "../Header/SearchForm";
+import SelectGroupOne from "../../FormElements/SelectGroup/SelectGroupOne";
+import ButtonDefault from "../../Buttons/ButtonDefault";
+import SearchForm from "../../Header/SearchForm";
 import { SearchOutlined } from "@ant-design/icons";
 
 const selectOptionsData = {

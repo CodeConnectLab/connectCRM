@@ -1,6 +1,6 @@
 import React from "react";
-import InputGroup from "../FormElements/InputGroup";
-import SelectGroupOne from "../FormElements/SelectGroup/SelectGroupOne";
+import InputGroup from "../../FormElements/InputGroup";
+import SelectGroupOne from "../../FormElements/SelectGroup/SelectGroupOne";
 
 export default function AdditionalLeadDetails() {
   return (
