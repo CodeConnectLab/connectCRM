@@ -201,7 +201,6 @@ const FollowupLeads = () => {
         }}
       /> */}
       <CustomAntdTable columns={columns} dataSource={data} />
-
       <div className="mt-4 flex items-center justify-between">
         <Select defaultValue="10" className="w-32">
           <Option value="10">10</Option>
