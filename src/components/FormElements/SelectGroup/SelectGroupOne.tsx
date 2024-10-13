@@ -26,10 +26,12 @@ const SelectGroupOne = ({
 
   return (
     <div className="w-full">
-      {label &&<label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-        {label}
-        {required && <span className="text-red"> *</span>}
-      </label>}
+      {label && (
+        <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+          {label}
+          {required && <span className="text-red"> *</span>}
+        </label>
+      )}
 
       <div className="relative z-20 bg-transparent dark:bg-dark-2">
         <select

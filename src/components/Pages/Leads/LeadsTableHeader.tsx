@@ -3,6 +3,7 @@ import SelectGroupOne from "../../FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "../../Buttons/ButtonDefault";
 import SearchForm from "../../Header/SearchForm";
 import { SearchOutlined } from "@ant-design/icons";
+import AdvanceFilterUI from "../Components/AdvanceFilterUI";
 
 const selectOptionsData = {
   agents: {
@@ -86,6 +87,9 @@ export default function LeadsTableHeader() {
     followUpDate: "",
     description: "",
   });
+
+  const [isAdvanceFilterEnable, setIsAdvanceFilterEnable] =
+    useState<boolean>(false);
   const handleSelectChange = (
     name: string,
     value: string | number | string[] | number[],
@@ -120,6 +124,7 @@ export default function LeadsTableHeader() {
             icon={<SearchOutlined />}
             label="Advance Filter"
             variant="outline"
+            onClick={() => setIsAdvanceFilterEnable(!isAdvanceFilterEnable)}
             fullWidth
           />
           <div className="flex gap-2">
@@ -128,10 +133,16 @@ export default function LeadsTableHeader() {
           </div>
         </div>
       </div>
+      {isAdvanceFilterEnable && <AdvanceFilterUI />}
+
       <div className="mb-4 flex justify-between">
         <div className="flex min-w-[330px] gap-2">
-          <ButtonDefault label="Select All" variant="primary" fullWidth/>
-          <ButtonDefault label="Select Per Page" variant="secondary" fullWidth/>
+          <ButtonDefault label="Select All" variant="primary" fullWidth />
+          <ButtonDefault
+            label="Select Per Page"
+            variant="secondary"
+            fullWidth
+          />
         </div>
         <div className="ml-2 w-full">
           <SearchForm customClasses="border-stroke-dark" />

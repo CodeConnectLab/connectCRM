@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from 'react';
-import { Table } from 'antd';
 import DatePickerOne from '@/components/FormElements/DatePicker/DatePickerOne';
 import ButtonDefault from '@/components/Buttons/ButtonDefault';
+import CustomAntdTable from '@/components/Tables/CustomAntdTable';
 
 interface EmployeeData {
   key: string;
@@ -105,40 +105,13 @@ const EmployeeList: React.FC = () => {
         </div>
       </div>
 
-      <Table
+      <CustomAntdTable
         columns={columns}
         dataSource={data}
         pagination={false}
         className="w-full"
       />
 
-      <style jsx global>{`
-        .dark .ant-table {
-          background-color: #1f2937;
-          color: #e5e7eb;
-        }
-        .dark .ant-table-thead > tr > th {
-          background-color: #374151;
-          color: #e5e7eb;
-          border-bottom: 1px solid #4b5563;
-        }
-        .dark .ant-table-tbody > tr > td {
-          border-bottom: 1px solid #4b5563;
-        }
-        .dark .ant-table-tbody > tr:hover > td {
-          background-color: #2d3748;
-        }
-        .dark .ant-picker {
-          background-color: #374151;
-          border-color: #4b5563;
-        }
-        .dark .ant-picker-input > input {
-          color: #e5e7eb;
-        }
-        .dark .ant-picker-suffix {
-          color: #e5e7eb;
-        }
-      `}</style>
     </div>
   );
 };

@@ -8,7 +8,7 @@ interface InputGroupProps {
   placeholder?: string;
   required?: boolean;
   disabled?: boolean;
-  value?: string;
+  value?: string | number;
   readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
