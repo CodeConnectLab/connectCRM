@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import { Table, Button, Input, Select, Checkbox } from "antd";
 import { EditOutlined } from "@ant-design/icons";
@@ -47,10 +48,12 @@ const FollowupLeads = () => {
     },
     {
       title: "Action",
-      key: "action",
-      render: () => (
+      key: "key",
+      render: (record: { key: string }) => (
         <div className="flex space-x-2">
-          <Button icon={<EditOutlined />} className="bg-primary text-white" />
+          <Link href={`/leads/${record.key}`}>
+            <Button icon={<EditOutlined />} className="bg-primary text-white" />
+          </Link>
           <Button icon="C" className="bg-green text-sm text-white" />
         </div>
       ),
@@ -185,7 +188,7 @@ const FollowupLeads = () => {
 
   return (
     <div className="p-4">
-      <LeadsTableHeader/>
+      <LeadsTableHeader />
       {/* <Table
         // rowSelection={rowSelection}
         columns={columns}

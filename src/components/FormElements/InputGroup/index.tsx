@@ -5,7 +5,7 @@ interface InputGroupProps {
   label: string;
   name: string;
   type: string;
-  placeholder: string;
+  placeholder?: string;
   required?: boolean;
   disabled?: boolean;
   value?: string;
@@ -36,10 +36,10 @@ const InputGroup: React.FC<InputGroupProps> = ({
           name={name}
           disabled={disabled}
           placeholder={placeholder}
-          // value={value}
-          // onChange={onChange}
+          value={value}
+          onChange={onChange}
           required={required}
-          className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary disabled:cursor-default disabled:bg-gray-2 dark:disabled:bg-dark"
+          className="w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5.5 py-3 text-dark outline-none transition placeholder:text-dark-6 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:text-white dark:focus:border-primary dark:disabled:bg-dark"
         />
       </div>
     </>
