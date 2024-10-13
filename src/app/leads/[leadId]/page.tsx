@@ -1,3 +1,4 @@
+"use client"
 import { Metadata } from "next";
 import React from "react";
 import { useParams } from "next/navigation";
@@ -6,7 +7,7 @@ import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
 
-export const metadata: Metadata = metadataStatic;
+// export const metadata: Metadata = metadataStatic;
 
 const LeadActionPage = () => {
   const { leadId } = useParams(); // Retrieve dynamic route parameter
