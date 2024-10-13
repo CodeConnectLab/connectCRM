@@ -2,9 +2,8 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
-import dynamic from 'next/dynamic'
+import EmployeeList from "@/components/Pages/CallManage/EmployeeList";
 
-const AddLeads = dynamic(() => import('@/components/Pages/Leads/AddLeads'), { ssr: false })
 export const metadata: Metadata = metadataStatic;
 
 const EmployeeListPage = () => {
@@ -12,7 +11,7 @@ const EmployeeListPage = () => {
     <DefaultLayout>
       <div className="mx-auto max-w-7xl">
         <Breadcrumb pageName="Employee List" />
-        {/* <AddLeads />{" "} */}
+        <EmployeeList />
       </div>
     </DefaultLayout>
   );

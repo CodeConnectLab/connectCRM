@@ -6,10 +6,7 @@ interface DatePickerOneProps {
   onChange: (selectedDates: Date[], dateStr: string) => void;
 }
 
-const DatePickerOne: React.FC<DatePickerOneProps> = ({
-  label,
-  onChange,
-}) => {
+const DatePickerOne: React.FC<DatePickerOneProps> = ({ label, onChange }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -36,25 +33,27 @@ const DatePickerOne: React.FC<DatePickerOneProps> = ({
 
   return (
     <div>
-    <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
-      {label || "Date picker"}
-    </label>
-    <div className="relative">
-      <input
-        ref={inputRef}
-        className="form-datepicker w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary"
-        placeholder="mm/dd/yyyy"
-        data-class="flatpickr-right"
-      />
+      {label && (
+        <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
+          {label}
+        </label>
+      )}
+      <div className="relative">
+        <input
+          ref={inputRef}
+          className="form-datepicker w-full rounded-[7px] border-[1.5px] border-stroke bg-transparent px-5 py-3 font-normal outline-none transition focus:border-primary active:border-primary dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary"
+          placeholder="mm/dd/yyyy"
+          data-class="flatpickr-right"
+        />
 
-      <div className="pointer-events-none absolute inset-0 left-auto right-5 flex items-center">
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <div className="pointer-events-none absolute inset-0 left-auto right-5 flex items-center">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M14.166 11.6666C14.6263 11.6666 14.9993 11.2935 14.9993 10.8333C14.9993 10.373 14.6263 9.99992 14.166 9.99992C13.7058 9.99992 13.3327 10.373 13.3327 10.8333C13.3327 11.2935 13.7058 11.6666 14.166 11.6666Z"
               fill="#9CA3AF"
