@@ -1,72 +1,32 @@
 import React, { useState } from "react";
-import { Button, Tabs, Table } from "antd";
-import { WhatsAppOutlined, MessageOutlined } from "@ant-design/icons";
 import InputGroup from "@/components/FormElements/InputGroup";
-import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
 import ButtonDefault from "../../Buttons/ButtonDefault";
-import CheckboxTwo from "../../FormElements/Checkboxes/CheckboxTwo";
 
-const { TabPane } = Tabs;
-
-const statusOptions = [
-  { value: "Call Back", label: "Call Back" },
-  { value: "Call Back-Re-visit", label: "Call Back-Re-visit" },
-  { value: "Call Back-Schedule-visit", label: "Call Back-Schedule-visit" },
-  { value: "Call Back-Visit", label: "Call Back-Visit" },
-  { value: "Fake lead", label: "Fake lead" },
-  { value: "Lost", label: "Lost" },
-  { value: "Meeting", label: "Meeting" },
-  { value: "Not Attempt", label: "Not Attempt" },
-  { value: "Pending", label: "Pending" },
-  { value: "SMS & Whatsapp Shoots", label: "SMS & Whatsapp Shoots" },
-  { value: "Won", label: "Won" },
-];
-
-const columns = [
+const serviceOptions = [
   {
-    title: "COMMENTED BY",
-    dataIndex: "commentedBy",
-    key: "commentedBy",
+    value: "Bhutani",
+    label: "Bhutani",
   },
   {
-    title: "DATE",
-    dataIndex: "date",
-    key: "date",
+    value: "Delhi NCR",
+    label: "Delhi NCR",
   },
   {
-    title: "STATUS",
-    dataIndex: "status",
-    key: "status",
+    value: "Mumbai",
+    label: "Mumbai",
   },
   {
-    title: "FOLLOWUP DATE",
-    dataIndex: "followupDate",
-    key: "followupDate",
+    value: "Chennai",
+    label: "Chennai",
   },
   {
-    title: "COMMENT",
-    dataIndex: "comment",
-    key: "comment",
-  },
-];
-
-const data = [
-  {
-    key: "1",
-    commentedBy: "Admin",
-    date: "30/09/24 10:14:14",
-    status: "Call Back",
-    followupDate: "01/10/24 3:44:00",
-    comment: "hiii",
+    value: "Kolkata",
+    label: "Kolkata",
   },
   {
-    key: "2",
-    commentedBy: "Admin",
-    date: "25/09/24 3:32:00",
-    status: "Call Back-Re-visit",
-    followupDate: "27/09/24 9:01:00",
-    comment: "sefse",
+    value: "Fairfox",
+    label: "Fairfox",
   },
 ];
 
@@ -123,11 +83,6 @@ const AllDetailsFields: React.FC = () => {
             value={formData.fullName}
             onChange={handleInputChange}
           />
-          <SelectGroupOne
-            label="Status"
-            options={statusOptions}
-            setSelectedOption={(value) => handleSelectChange("status", value)}
-          />
           <InputGroup
             label="Company Name"
             name="companyName"
@@ -135,12 +90,10 @@ const AllDetailsFields: React.FC = () => {
             value={formData.companyName}
             onChange={handleInputChange}
           />
-          <InputGroup
+          <SelectGroupOne
             label="Service"
-            name="service"
-            type="text"
-            value={formData.service}
-            onChange={handleInputChange}
+            options={serviceOptions}
+            setSelectedOption={(value) => handleSelectChange("service", value)}
           />
           <InputGroup
             label="Alternative No"

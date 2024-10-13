@@ -42,7 +42,7 @@ const FollowupLeads = () => {
       key: "agent",
     },
     {
-      title: "Follow Up data",
+      title: "Follow-Up date",
       dataIndex: "status",
       key: "followUp",
     },
