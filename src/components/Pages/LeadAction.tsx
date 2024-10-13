@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Button, Tabs, Table } from "antd";
 import { WhatsAppOutlined, MessageOutlined } from "@ant-design/icons";

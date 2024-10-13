@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne";
-import Link from "next/link";
 import InputGroup from "@/components/FormElements/InputGroup";
 import type { CollapseProps } from "antd";
 import AdditionalLeadDetails from "./AdditionalLeadDetails";
 import CustomCollapse from "../FormElements/CustomCollapse";
 import DatePickerOne from "../FormElements/DatePicker/DatePickerOne";
 import MultiSelect from "../FormElements/MultiSelect";
+import ButtonDefault from "../Buttons/ButtonDefault";
 
 const selectOptionsData = {
   leadSources: {
@@ -176,7 +175,6 @@ export default function AddLeads() {
   };
 
   const handleDateChange = (selectedDates: Date[], dateStr: string) => {
-    
     setFormData((prevData) => ({
       ...prevData,
       followUpDate: dateStr ? dateStr : "",
@@ -192,10 +190,15 @@ export default function AddLeads() {
         <div className="flex flex-col gap-9">
           {/* <!-- Contact Form --> */}
           <div className="rounded-[10px] border border-stroke bg-white shadow-1 dark:border-dark-3 dark:bg-gray-dark dark:shadow-card">
-            <div className="border-b border-stroke px-6.5 py-4 dark:border-dark-3">
+            <div className="flex justify-between items-center border-b border-stroke px-6.5 py-4 dark:border-dark-3">
               <h3 className="font-semibold text-dark dark:text-white">
                 Basic Details
               </h3>
+              <ButtonDefault
+                label="↓ Import"
+                mode="link"
+                link={"/import"}
+              />
             </div>
             <form action={handleSubmit}>
               <div className="w-full p-6.5">
@@ -256,9 +259,7 @@ export default function AddLeads() {
                   <div className="w-full xl:w-1/2">
                     <SelectGroupOne
                       label={selectOptionsData["productAndService"]?.label}
-                      options={
-                        selectOptionsData["productAndService"]?.options
-                      }
+                      options={selectOptionsData["productAndService"]?.options}
                       setSelectedOption={(value) =>
                         handleSelectChange("productAndService", value)
                       }
