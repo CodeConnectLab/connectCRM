@@ -2,20 +2,19 @@ import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
 import metadataStatic from "@/utils/metadataStatic";
-import dynamic from 'next/dynamic'
+import ImportLeads from "@/components/Leads/ImportLeads";
 
-const AddLeads = dynamic(() => import('@/components/Leads/AddLeads'), { ssr: false })
 export const metadata: Metadata = metadataStatic;
 
-const AddLeadsPage = () => {
+const Import = () => {
   return (
     <DefaultLayout>
       <div className="mx-auto max-w-7xl">
-        <Breadcrumb pageName="Add leads" />
-        <AddLeads />{" "}
+        <Breadcrumb pageName="Import leads" />
+        <ImportLeads/>
       </div>
     </DefaultLayout>
   );
 };
 
-export default AddLeadsPage;
+export default Import;
