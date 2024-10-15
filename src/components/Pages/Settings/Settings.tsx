@@ -4,6 +4,8 @@ import TabPanel from "@/components/TabPanel/TabPanel";
 import GeneralSetting from "./Components/GeneralSetting";
 import DepartmentSetting from "./Components/DepartmentSetting";
 import SubscriptionInfo from "./Components/SubscriptionInfo";
+import useScreenHook from "@/hooks/useScreenHook";
+import { DeviceType } from "@/types/deviceType";
 
 const Settings: React.FC = () => {
   const tabsData = [
@@ -16,20 +18,27 @@ const Settings: React.FC = () => {
     { tabName: "Subscription", component: <SubscriptionInfo /> },
   ];
 
-  return (
-    <div className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
-      {/* <h2 className="mb-6 text-2xl font-semibold text-dark dark:text-white">
-        Settings
-      </h2> */}
+  const { deviceType } = useScreenHook();
 
+  return (
+    <div className="rounded-lg bg-white p-3 pt-0 lg:p-6 lg:pl-0 shadow-md dark:bg-gray-800">
       <div className="flex">
-        <div className="w-full pr-6">
-          <TabPanel
-            tabsData={tabsData}
-            type="line"
-            tabPosition="left"
-            defaultActiveKey="1"
-          />
+        <div className="w-full">
+          {deviceType === "desktop" ? (
+            <TabPanel
+              tabsData={tabsData}
+              type="line"
+              tabPosition="left"
+              defaultActiveKey="1"
+            />
+          ) : (
+            <TabPanel
+              tabsData={tabsData}
+              type="line"
+              tabPosition="top"
+              defaultActiveKey="1"
+            />
+          )}
         </div>
       </div>
     </div>

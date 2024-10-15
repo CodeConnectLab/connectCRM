@@ -13,10 +13,10 @@ const config: Config = {
       satoshi: ["Satoshi", "sans-serif"],
     },
     screens: {
+      ...defaultTheme.screens,
       "2xsm": "375px",
       xsm: "425px",
-      "3xl": "2000px",
-      ...defaultTheme.screens,
+      // "3xl": "2000px",
     },
     extend: {
       colors: {

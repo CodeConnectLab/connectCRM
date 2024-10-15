@@ -95,6 +95,7 @@ const CustomAntdTable = ({ columns, dataSource }: any) => {
         columns={columns || columnsLocal}
         dataSource={dataSource || dataLocal}
         pagination={false}
+        className="w-full overflow-auto"
       />
       <style jsx global>{`
         .dark .ant-table {

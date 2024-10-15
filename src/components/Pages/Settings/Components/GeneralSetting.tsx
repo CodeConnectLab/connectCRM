@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
-import InputGroup from '@/components/FormElements/InputGroup';
-import ButtonDefault from '@/components/Buttons/ButtonDefault';
+import React, { useState } from "react";
+import InputGroup from "@/components/FormElements/InputGroup";
+import ButtonDefault from "@/components/Buttons/ButtonDefault";
 
 const GeneralSetting: React.FC = () => {
   const [formData, setFormData] = useState({
-    companyName: 'Itinfo Technologies Pvt Ltd',
-    companyAddress: 'VR-1, City Centre, SCO 83,',
-    contactPerson: 'Anurag Katoch',
-    pincode: '122001',
-    emailId: 'anurag.katoch@gmail.com',
-    city: 'Gurugram',
-    contactNo: '9876394628',
-    state: 'Haryana',
-    websiteName: 'www.itinfotechnologies.com',
-    country: 'India',
-    companyPanNo: '',
-    companyGstNo: '',
+    companyName: "Itinfo Technologies Pvt Ltd",
+    companyAddress: "VR-1, City Centre, SCO 83,",
+    contactPerson: "Anurag Katoch",
+    pincode: "122001",
+    emailId: "anurag.katoch@gmail.com",
+    city: "Gurugram",
+    contactNo: "9876394628",
+    state: "Haryana",
+    websiteName: "www.itinfotechnologies.com",
+    country: "India",
+    companyPanNo: "",
+    companyGstNo: "",
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -27,12 +29,12 @@ const GeneralSetting: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    console.log('Submitting company information:', formData);
+    console.log("Submitting company information:", formData);
     // Implement your submit logic here
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-6xl mx-auto">
+    <div className="mx-auto max-w-6xl rounded-lg">
       <div className="grid grid-cols-2 gap-6">
         <InputGroup
           label="Company Name"
@@ -121,7 +123,7 @@ const GeneralSetting: React.FC = () => {
           onChange={handleInputChange}
         />
       </div>
-      
+
       <div className="mt-6 flex justify-end">
         <ButtonDefault
           label="Submit"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ClientInfo {
   clientName: string;
@@ -11,17 +11,27 @@ interface ClientInfo {
   status: string;
 }
 
-const ClientInformationDisplay: React.FC<{ clientInfo: ClientInfo }> = ({ clientInfo }) => {
-  const InfoRow: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+const ClientInformationDisplay: React.FC<{ clientInfo: ClientInfo }> = ({
+  clientInfo,
+}) => {
+  const InfoRow: React.FC<{ label: string; value: string }> = ({
+    label,
+    value,
+  }) => (
     <div className="mb-4">
-      <div className="text-sm font-medium text-gray-500 dark:text-gray-400">{label}</div>
-      <div className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">{value}</div>
+      <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+        {label}
+      </div>
+      <div className="mt-1 text-lg font-semibold text-gray-900 dark:text-white">
+        {value}
+      </div>
       <div className="mt-2 border-b border-gray-200 dark:border-gray-700"></div>
     </div>
   );
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-4xl mx-auto">
+    <div className=" max-l mx-auto">
+      {/* <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-4xl mx-auto"> */}
       <div className="grid grid-cols-2 gap-6">
         <InfoRow label="Client Name" value={clientInfo.clientName} />
         <InfoRow label="Domain" value={clientInfo.domain} />
@@ -50,8 +60,10 @@ const SubscriptionInfo: React.FC = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">Client Information</h1>
+    <div className="p-0">
+      <h1 className="mb-6 text-center text-2xl font-bold text-gray-800 dark:text-white">
+        Client Information
+      </h1>
       <ClientInformationDisplay clientInfo={clientInfo} />
     </div>
   );
