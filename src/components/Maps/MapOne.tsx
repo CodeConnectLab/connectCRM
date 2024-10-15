@@ -1,9 +1,11 @@
 "use client";
 import jsVectorMap from "jsvectormap";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "../../js/us-aea-en";
 
 const MapOne: React.FC = () => {
+  const mapRef = useRef<any>(null);
+
   useEffect(() => {
     const mapElement = document.getElementById("mapOne");
 
@@ -12,7 +14,7 @@ const MapOne: React.FC = () => {
       return;
     }
 
-    const vectorMapOne = new jsVectorMap({
+    mapRef.current = new jsVectorMap({
       selector: "#mapOne",
       map: "us_aea_en",
       zoomButtons: true,
@@ -47,11 +49,7 @@ const MapOne: React.FC = () => {
     });
 
     return () => {
-      if (vectorMapOne) {
-        vectorMapOne?.destroy();
-      } else {
-        console.error("Vector map instance not found during cleanup");
-      }
+      mapRef.current?.destroy();
     };
   }, []);
 

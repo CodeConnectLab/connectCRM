@@ -6,6 +6,7 @@ import DepartmentSetting from "./Components/DepartmentSetting";
 import SubscriptionInfo from "./Components/SubscriptionInfo";
 import useScreenHook from "@/hooks/useScreenHook";
 import { DeviceType } from "@/types/deviceType";
+import CRMFields from "./Components/CRMFields";
 
 const Settings: React.FC = () => {
   const tabsData = [
@@ -14,7 +15,7 @@ const Settings: React.FC = () => {
       component: <GeneralSetting />,
     },
     { tabName: "Department", component: <DepartmentSetting /> },
-    { tabName: "CRM Field", component: <div>CRM Field Content</div> },
+    { tabName: "CRM Field", component:<CRMFields/>},
     { tabName: "Subscription", component: <SubscriptionInfo /> },
   ];
 
