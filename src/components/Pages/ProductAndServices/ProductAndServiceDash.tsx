@@ -1,11 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Table, Button } from "antd";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import ButtonDefault from "@/components/Buttons/ButtonDefault";
-import CustomAntdTable from "@/components/Tables/CustomAntdTable";
-import AddNewProduct from "./AddNewProduct";
+import DynamicDataManagement from "@/components/DynamicDataManagement/DynamicDataManagement";
 
 interface ProductService {
   key: string;
@@ -15,7 +11,7 @@ interface ProductService {
   setupFee: number;
 }
 
-const data: ProductService[] = [
+const dataInitial: ProductService[] = [
   { key: "1", sn: 1, productName: "Bhutani", price: 0, setupFee: 100 },
   { key: "2", sn: 2, productName: "Godrej", price: 0, setupFee: 10 },
   { key: "3", sn: 3, productName: "Whiteline", price: 0, setupFee: 100 },
@@ -36,15 +32,17 @@ const data: ProductService[] = [
 ];
 
 const ProductAndServiceDash = () => {
-  const [productForm, setProductForm] = useState({
-    enable: false,
-    productData: {},
-  });
-  const handleAddNew = () => {
-    setProductForm({ ...productForm, enable: !productForm.enable }); // Implement logic to add a new product/service
-  };
+  const fields = [
+    {
+      name: "productName",
+      label: "Product & Service Name",
+      type: "text",
+    },
+    { name: "setupFee", label: "Setup fee", type: "number" },
+    { name: "price", label: "Price", type: "number" },
+  ];
 
-  const columnsFormat = [
+  const columns = [
     {
       title: "S.N.",
       dataIndex: "sn",
@@ -67,65 +65,37 @@ const ProductAndServiceDash = () => {
       key: "price",
       render: (price: number) => `Rs. ${price}`,
     },
-    {
-      title: "ACTION",
-      dataIndex: "key",
-      key: "action",
-      render: (key: string) => (
-        <span>
-          <Button
-            icon={<DeleteOutlined />}
-            className="mr-2 bg-red-500 text-white"
-            onClick={() => handleDelete(key)}
-          />
-          <Button
-            icon={<EditOutlined />}
-            className="bg-primary text-white"
-            onClick={() => handleEdit(key)}
-          />
-        </span>
-      ),
-    },
   ];
 
+  const [data, setData] = useState(dataInitial);
+
+  const handleAdd = (newItem: any) => {
+    setData([
+      ...data,
+      { ...newItem, key: data.length.toString, sn: data.length },
+    ]);
+  };
+
+  const handleEdit = (key: any, updatedItem: any) => {
+    setData(
+      data.map((item) => (item.key === key ? { ...updatedItem, key } : item)),
+    );
+  };
+
   const handleDelete = (key: string) => {
-    console.log("Delete product/service with key:", key);
-    // Implement delete logic
-  };
-
-  const handleEdit = (key: string) => {
-    console.log("Edit product/service with key:", key);
-    const filterData = data.filter((item) => item?.key === key);
-    setProductForm({ enable: true, productData: filterData[0] });
-    // Implement edit logic
-  };
-
-  const handleSubmit = (enable: boolean, productData: any) => {
-    setProductForm({
-      enable,
-      productData,
-    });
+    setData(data.filter((item) => item.key !== key));
   };
 
   return (
-    <div className="rounded-lg bg-white p-6 shadow-md dark:bg-gray-800">
-      <div className="mb-4 flex items-center justify-between">
-        <h3 className="text-xl font-semibold text-dark dark:text-white">
-          Add or Edit product and services
-        </h3>
-        <ButtonDefault
-          label={!productForm?.enable ? "Add New" : "Cancel"}
-          onClick={handleAddNew}
-        />
-      </div>
-      {productForm?.enable && (
-        <AddNewProduct
-          data={productForm?.productData}
-          handleSubmit={handleSubmit}
-        />
-      )}
-      <CustomAntdTable columns={columnsFormat} dataSource={data} />
-    </div>
+    <DynamicDataManagement
+      title="Product and Service"
+      fields={fields}
+      columns={columns}
+      data={data}
+      onAdd={handleAdd}
+      onEdit={handleEdit}
+      onDelete={handleDelete}
+    />
   );
 };
 
