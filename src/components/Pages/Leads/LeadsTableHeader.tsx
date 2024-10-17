@@ -128,8 +128,8 @@ export default function LeadsTableHeader() {
             fullWidth
           />
           <div className="flex gap-2">
-            <ButtonDefault label="↓ Import" variant="outline" />
-            <ButtonDefault label="+ Add Lead" variant="outline" />
+            <ButtonDefault mode="link" link={"/import"} label="↓ Import" variant="outline" />
+            <ButtonDefault mode="link" link={"/leads/add"} label="+ Add Lead" variant="outline" />
           </div>
         </div>
       </div>

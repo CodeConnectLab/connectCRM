@@ -1,6 +1,6 @@
 export type SelectOption = {
   label: string;
-  value: string | number;
+  value: any;
 };
 
 export type SelectProps = {
@@ -37,10 +37,10 @@ export type SelectProps = {
   /**
    * The currently selected option
    */
-  selectedOption?: string | number;
+  selectedOption?: any;
 
   /**
    * A function to set the selected option
    */
-  setSelectedOption?: (option: string | number) => void;
+  setSelectedOption?: (option: any) => void;
 };
