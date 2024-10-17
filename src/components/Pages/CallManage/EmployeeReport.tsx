@@ -8,7 +8,7 @@ import SelectGroupOne from "@/components/FormElements/SelectGroup/SelectGroupOne
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import ButtonDefault from "@/components/Buttons/ButtonDefault";
 import CustomAntdTable from "@/components/Tables/CustomAntdTable";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 import useScreenHook from "@/hooks/useScreenHook";
 import CallDetails from "./components/CallDetails";
 
