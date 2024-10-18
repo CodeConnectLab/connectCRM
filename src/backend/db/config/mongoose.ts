@@ -15,8 +15,8 @@ const dbConnect = async (): Promise<typeof mongoose> => {
     return mongoose;
   }
   return mongoose.connect(MONGO_URI!, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
     serverSelectionTimeoutMS: 5000,
     socketTimeoutMS: 45000,
     family: 4
