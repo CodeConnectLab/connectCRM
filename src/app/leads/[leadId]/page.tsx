@@ -10,8 +10,9 @@ import metadataStatic from "@/utils/metadataStatic";
 // export const metadata: Metadata = metadataStatic;
 
 const LeadActionPage = () => {
-  const { leadId } = useParams(); // Retrieve dynamic route parameter
-  console.log({ leadId });
+  const params = useParams<{ leadId: string }>();
+  
+  const leadId = params?.leadId;
 
   return (
     <DefaultLayout>
