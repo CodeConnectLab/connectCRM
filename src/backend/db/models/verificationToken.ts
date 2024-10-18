@@ -1,5 +1,7 @@
 import mongoose, { Schema, model, Model } from 'mongoose';
+// @ts-ignore
 import timestamps from 'mongoose-timestamp';
+// @ts-ignore
 import mongooseDelete from 'mongoose-delete';
 
 interface IVerificationToken {

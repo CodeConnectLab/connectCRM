@@ -1,6 +1,8 @@
 import mongoose, { Document, Schema } from 'mongoose';
 import bcrypt from 'bcrypt';
+// @ts-ignore
 import timestamps from 'mongoose-timestamp';
+// @ts-ignore
 import mongooseDelete from 'mongoose-delete';
 interface IUser extends Document {
   name: string;
