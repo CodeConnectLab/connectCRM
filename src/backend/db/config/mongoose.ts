@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-
 interface MongooseOptions {
   useNewUrlParser?: boolean;
   useUnifiedTopology?: boolean;
@@ -7,9 +6,7 @@ interface MongooseOptions {
   socketTimeoutMS?: number;
   family?: number;
 }
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/nextcrm';
-console.log('MONGO_URI', MONGO_URI);
-
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://codeconnect123:codeconnect123@cluster0.ocxugzh.mongodb.net/mydatabase?retryWrites=true&w=majority';
 const dbConnect = async (): Promise<typeof mongoose> => {
   if (mongoose.connection.readyState >= 1) {
     return mongoose;
