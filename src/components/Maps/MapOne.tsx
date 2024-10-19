@@ -49,7 +49,7 @@ const MapOne: React.FC = () => {
     });
 
     return () => {
-      mapRef.current?.destroy();
+      mapRef?.current?.destroy();
     };
   }, []);
 

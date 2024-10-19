@@ -88,13 +88,13 @@ const dataLocal = [
     status: "Pending",
   },
 ];
-const CustomAntdTable = ({ columns, dataSource }: any) => {
+const CustomAntdTable = ({ columns, dataSource, pagination = false }: any) => {
   return (
     <div>
       <Table
         columns={columns || columnsLocal}
         dataSource={dataSource || dataLocal}
-        pagination={false}
+        pagination={pagination}
         className="w-full overflow-auto"
       />
       <style jsx global>{`
@@ -103,7 +103,8 @@ const CustomAntdTable = ({ columns, dataSource }: any) => {
           color: white;
         }
         .dark .ant-table-thead > tr > th {
-          background: #1e2837 !important;
+          background: #374151 !important;
+          // background: #1e2837 !important;
           color: white !important;
           border-bottom: 1px solid #2d3748;
         }
@@ -117,7 +118,8 @@ const CustomAntdTable = ({ columns, dataSource }: any) => {
           background: #0f172a !important;
         }
         .dark .ant-table-thead > tr > th {
-          background: #1e2837 !important;
+          background: #374151 !important;
+          // background: #1e2837 !important;
         }
         .dark .ant-table-tbody > tr > td {
           background: #0f172a !important;
@@ -139,6 +141,30 @@ const CustomAntdTable = ({ columns, dataSource }: any) => {
             .ant-table-row-expand-icon-cell
           ):not([colspan])::before {
           background: transparent;
+        }
+        .dark .ant-pagination .ant-pagination-total-text {
+          color: white;
+        }
+        .dark
+          .ant-pagination
+          .ant-pagination-disabled
+          .ant-pagination-item-link,
+        .ant-pagination
+          .ant-pagination-disabled:hover
+          .ant-pagination-item-link {
+          color: #9ca3af;
+        }
+        .dark .ant-pagination .ant-pagination-item-active {
+          background-color: #374151;
+          border-color: grey;
+        }
+        .dark .ant-pagination .ant-pagination-item-active a {
+          color: white;
+        }
+        .dark
+          .ant-select-outlined:not(.ant-select-customize-input)
+          .ant-select-selector {
+          border: 1px solid grey;
         }
       `}</style>
     </div>
