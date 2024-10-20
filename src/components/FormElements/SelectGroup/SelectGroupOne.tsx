@@ -4,12 +4,14 @@ import React, { useEffect, useState } from "react";
 
 const SelectGroupOne = ({
   customClasses,
+  wrapperClasses,
   label,
   required,
   disabled,
   options,
   setSelectedOption = () => {},
   selectedOption = "",
+  placeholder = "",
 }: SelectProps) => {
   const [selectedOptionLocal, setSelectedOptionLocal] = useState<
     string | number
@@ -25,7 +27,7 @@ const SelectGroupOne = ({
   }, [selectedOptionLocal]);
 
   return (
-    <div className="w-full">
+    <div className={`w-full ${wrapperClasses && wrapperClasses}`}>
       {label && (
         <label className="mb-3 block text-body-sm font-medium text-dark dark:text-white">
           {label}
@@ -44,7 +46,7 @@ const SelectGroupOne = ({
           }}
           className={`relative z-20 w-full appearance-none rounded-[7px] border border-stroke bg-transparent px-5.5 py-3 outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-gray-2 dark:border-dark-3 dark:bg-dark-2 dark:focus:border-primary dark:disabled:bg-dark ${
             isOptionSelected ? "text-dark dark:text-white" : "text-gray-5"
-          }`}
+          } ${customClasses && customClasses}`}
         >
           {options?.map((item) => (
             <option value={item.value} key={item.value}>

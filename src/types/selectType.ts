@@ -8,6 +8,7 @@ export type SelectProps = {
    * Custom CSS classes for the select component
    */
   customClasses?: string;
+  wrapperClasses?: string;
 
   /**
    * Custom inline styles for the select component
@@ -38,6 +39,8 @@ export type SelectProps = {
    * The currently selected option
    */
   selectedOption?: any;
+
+  placeholder?:string
 
   /**
    * A function to set the selected option
