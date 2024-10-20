@@ -3,13 +3,18 @@ import React from "react";
 import Signin from "@/components/Auth/Signin";
 import Image from "next/image";
 import Link from "next/link";
-export default function LoginPage() {
+import SignUp from "@/components/Auth/SignUp";
+// import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
+export default function LoginPage({ isSignIn = true }: { isSignIn: boolean }) {
   return (
     <div className="rounded-[10px] bg-white shadow-1 dark:bg-gray-dark dark:shadow-card">
+      {/* <div className="flex justify-end">
+        <DarkModeSwitcher />
+      </div> */}
       <div className="flex flex-wrap items-center">
         <div className="w-full xl:w-1/2">
           <div className="w-full p-4 sm:p-12.5 xl:p-15">
-            <Signin />
+            {isSignIn ? <Signin /> : <SignUp />}
           </div>
         </div>
 
