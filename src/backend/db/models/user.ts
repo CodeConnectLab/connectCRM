@@ -7,9 +7,9 @@ import mongooseDelete from 'mongoose-delete';
 interface IUser extends Document {
   name: string;
   email: string;
-  password: string;
+  hashedPassword: string;
   role: string;
-  companyCode: string;
+  companyId: any;
   phone?: string;
   createdAt: Date;
   updatedAt: Date;
@@ -38,9 +38,8 @@ const UserSchema: Schema<IUser> = new Schema<IUser>({
     unique: true,
     trim: true
   },
-  password: {
-    type: String,
-    required: true
+  hashedPassword: {
+    type: String
   },
   role: {
     type: String,
@@ -48,11 +47,10 @@ const UserSchema: Schema<IUser> = new Schema<IUser>({
     enum: ['Admin', 'User', 'Manager'],
     default: 'User'
   },
-  companyCode: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true
+  companyId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "company",
+    required: true
   },
   phone: {
     type: String,
@@ -105,14 +103,5 @@ UserSchema.plugin(mongooseDelete, {
   deletedAt: true
 });
 
-// Hash the password before saving
-UserSchema.pre('save', async function (this: IUser, next) {
-  const user = this;
-  if (!user.isModified('password')) return next();
 
-  user.password = await bcrypt.hash(user.password, 10);
-  next();
-});
-
-// Check if the model exists, if not create it
 export default mongoose.models.User || mongoose.model<IUser>('User', UserSchema);

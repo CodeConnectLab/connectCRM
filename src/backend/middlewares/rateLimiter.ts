@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import rateLimit from 'express-rate-limit';
 
 const limiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 15 minutes
-  max: 50, 
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 20, 
   message: 'Too many requests from this IP, please try again later.',
   keyGenerator: (req: NextApiRequest) => {
     // Use `x-forwarded-for` header if available, otherwise fallback to a default IP
