@@ -24,6 +24,11 @@ const nextConfig = {
         port: ""
       }
     ]
+  },
+  env: {
+    MONGO_URI: process.env.MONGO_URI,
+    SESSION_SECRET: process.env.SESSION_SECRET,
+    REFRESH_SECRET: process.env.REFRESH_SECRET,
   }
 };
 
